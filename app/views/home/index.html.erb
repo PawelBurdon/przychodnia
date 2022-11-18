@@ -1,0 +1,16 @@
+<h1>Witam</h1> 
+
+<% if current_user %>
+<%= link_to 'Wyloguj sie', destroy_user_session_path, method: :delete %><br>
+
+        <%= link_to 'Uzytkownicy', users_path %><br>
+
+<%= link_to "Lekarze", doctors_path %>
+<%= link_to "Przychodnie", clinics_path %>
+
+<% else %>
+
+    <%= link_to 'Zarejestruj sie', new_user_registration_path %>
+    <%= link_to 'Zaloguj sie', new_user_session_path %><br>
+
+<% end %>

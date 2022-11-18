@@ -1,0 +1,27 @@
+
+<p>
+  <strong>Imie i nazwisko:</strong>
+  <%= @doctor.name %>
+</p>
+ 
+<p>
+  <strong>Specjalizacja:</strong>
+  <%= @doctor.spec %>
+</p>
+
+<p>
+  <strong>Adres:</strong>
+  <%= @doctor.address %>
+</p>
+
+<p>
+  <strong>Przychodnie:</strong>
+  <% @clinic.each do |clinic| %>
+  <%= clinic.number %> |
+  <%end%>
+</p>
+
+
+  
+
+<%= link_to 'Powrot', doctors_path %> 

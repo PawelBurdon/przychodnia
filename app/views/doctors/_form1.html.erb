@@ -1,0 +1,17 @@
+<h1>Wyszukaj lekarza</h1>
+
+<%= form_with url: doctors_search_path, method: :get, remote: true  do |f| %>
+    <%= f.text_field :name, placeholder: "Wyszukaj" %>
+    <%= f.submit "Wyszukaj", id: "test" %>
+<% end %>
+
+<script>
+$('#name').keyup(function(){
+  $.ajax({
+    url: "/doctors/search",
+    type: "GET",
+    dataType: "script",
+    data: { q: $("#name").val() }
+  })
+})
+</script>

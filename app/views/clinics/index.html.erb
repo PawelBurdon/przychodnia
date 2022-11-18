@@ -1,0 +1,31 @@
+<%= link_to 'wyszukaj', clinics_search_path %><br>
+<h1>Przychodnie</h1>
+ 
+<table cellspacing="10">
+  <tr>
+    <th>Zdjecie</th>
+    <th>Numer</th>
+    <th>Rodzaj</th>
+    <th>Lekarz</th>
+    <th></th>
+  </tr>
+ 
+  <% @clinics.each do |clinic| %>
+    <tr>
+      <td><%= image_tag clinic.image, :style => "width:200px; height:100px"%></td>
+      <td><%= clinic.number %></td>
+      <td><%= clinic.clinic_type %></td>
+      <td><%= clinic.doctor.name %></td>
+      <td><%= link_to 'Pokaz', clinic_path(clinic) %></td>
+      <% if current_user.admin == true %>
+        <td><%= link_to 'Edytuj', edit_clinic_path(clinic) %></td>
+        <td><%= link_to 'Usun', clinic_path(clinic), method: :delete, data: { confirm: 'Na pewno chcesz usunac?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% if current_user.admin == true %>
+  <%= link_to 'Dodaj przychodnie', new_clinic_path %><br>
+<% end %>
+<%= link_to 'Powrot', root_path %>

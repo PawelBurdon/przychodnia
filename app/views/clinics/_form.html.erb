@@ -1,0 +1,44 @@
+<%= form_with model: @clinic, local: true do |form| %>
+ 
+  <% if @clinic.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@clinic.errors.count, "bład") %> 
+      </h2>
+      <ul>
+        <% @clinic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.file_field :image %>
+  </p>
+
+  <p>
+    <%= form.label :number, "Numer Przychodni:" %><br>
+    <%= form.text_field :number %>
+  </p>
+
+  <p>
+    <%= form.label :clinic_type, "Rodzaj Przychodni:" %><br>
+    <%= select(:clinic, :clinic_type, [['Neurologiczna', 'Neurologiczna'], ['Kardiologiczna', 'Kardiologiczna'], ['Medycyny pracy', 'Medycyny pracy'], ['Hematologiczna', 'Hematologiczna'], ['Żywieniowa', 'Żywieniowa']]) %>
+  </p>
+ 
+  <p>
+    <%= form.label :doctor_id, "Wybierz lekarza:" %><br>
+    <%= form.collection_select :doctor_id, Doctor.all, :id, :name %>
+  </p>
+
+  <p>
+    <%= form.label :data, "Data powstania:" %><br>
+    <%= form.date_select :data, start_year: 1900, end_year: Time.now.year %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>

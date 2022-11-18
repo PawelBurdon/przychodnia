@@ -1,0 +1,27 @@
+<%= link_to "Wyszukaj", doctors_search_path %>
+
+<h1>Lekarze</h1>
+ 
+<table>
+  <tr>
+    <th>Imie i nazwisko</th>
+    <th>Specjalizacja</th> 
+  </tr>
+ 
+  <% @doctors.each do |doctor| %> 
+    <tr>
+      <td><%= doctor.name %></td>
+      <td><%= doctor.spec %></td>
+      <td><%= link_to 'Pokaz', doctor_path(doctor) %></td>
+      <% if current_user.admin == true %>
+        <td><%= link_to 'Edytuj', edit_doctor_path(doctor) %></td>
+        <td><%= link_to 'Zwolnij', doctor_path(doctor), method: :delete, data: { confirm: 'Na pewno chcesz zwolinc?' } %></td>
+      <%end%>
+    </tr>
+  <% end %>
+</table>
+
+<% if current_user.admin == true %>
+  <%= link_to 'Dodaj lekarza', new_doctor_path %><br>
+<%end%>
+<%= link_to 'Powrot', root_path %>

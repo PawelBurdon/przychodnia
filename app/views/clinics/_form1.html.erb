@@ -1,0 +1,18 @@
+<h1>Wyszukaj przychodnie</h1>
+
+<%= form_with url: clinics_search_path, method: :get, remote: true  do |f| %>
+    <%= f.text_field :clinic_type, placeholder: "Wyszukaj" %>
+    <%= f.submit "Wyszukaj", id: "test" %>
+<% end %>
+
+<script>
+$('#clinic_type').keyup(function(){
+  $.ajax({
+    url: "/clinics/search",
+    type: "GET",
+    dataType: "script",
+    data: { q: $("#clinic_type").val() }
+  })
+})
+</script>
+

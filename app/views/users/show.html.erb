@@ -1,0 +1,17 @@
+<h1>Informacje o logowaniu</h1>
+
+<table border="1" cellspacing="0">
+  <tr>
+    <th>Zalogowano</th>
+    <th>Wylogowano</th>
+    <th>Adres IP</th>
+  </tr>
+
+    <tr>
+      <td><%= @user.current_sign_in_at.strftime('%F %T') %></td>
+      <td>Trwaja prace nad tym</td>
+      <td><%= @user.current_sign_in_ip %>
+    </tr>
+</table>
+
+<%= link_to "Powrot", users_path%>

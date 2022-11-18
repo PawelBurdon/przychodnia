@@ -1,0 +1,20 @@
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Numer</th>
+      <th>Rodzaj</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @q.each do |wynik| %>
+      <tr>
+        <td><%= wynik.number %></td>
+        <td><%= wynik.clinic_type %></td>
+        <td><%= link_to 'Zobacz', wynik %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

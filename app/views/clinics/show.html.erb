@@ -1,0 +1,25 @@
+
+<p>
+  <strong>Zdjecie:</strong>
+    <%= image_tag @clinic.image, :style => "width:200px; height:100px" %>
+</p>
+<p>
+  <strong>Numer:</strong>
+  <%= @clinic.number %>
+</p>
+<p>
+  <strong>Rodzaj:</strong>
+  <%= @clinic.clinic_type %>
+</p>
+<p>
+  <strong>Lekarz:</strong>
+  <%= @clinic.doctor.name %>
+</p>
+<p>
+  <strong>Data powstania:</strong>
+  <%= @clinic.data %>
+</p>
+
+ 
+
+<%= link_to 'Powrot', clinics_path %>
