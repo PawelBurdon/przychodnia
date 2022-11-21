@@ -2,9 +2,9 @@
 
 <% if current_user %>
 <%= link_to 'Wyloguj sie', destroy_user_session_path, method: :delete %><br>
-
+    <% if current_user.admin == true%>
         <%= link_to 'Uzytkownicy', users_path %><br>
-
+    <%end%>
 <%= link_to "Lekarze", doctors_path %>
 <%= link_to "Przychodnie", clinics_path %>
 
