@@ -1,0 +1,26 @@
+
+<table>
+    <tr>
+        <th>Opis problemu</th>
+        <th>Data</th>
+        <th>Uzytkownik</th>
+        <th>Doktor</th>
+        <th>Rodzaj przychodni</th>
+    </tr>
+<% @visits.each do |visit| %>
+    <tr>
+        <td><%= visit.description %></td>
+        <td><%= visit.data.strftime('%F %T') %></td>
+        <td><%= visit.user.email %></td>
+        <td><%= visit.clinic.doctor.name %></td>
+        <td><%= visit.clinic.clinic_type %></td>
+        <td><%= link_to 'Usun', visit_path(visit), method: :delete, data: { confirm: 'Na pewno chcesz usunac?' } %></td>
+    </tr>
+<%end%> 
+</table>
+
+<%= link_to "Dodaj wizyte", new_visit_path %>
+<%= link_to "Powrot", root_path %>
+
+
+

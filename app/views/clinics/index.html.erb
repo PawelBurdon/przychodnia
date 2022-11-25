@@ -28,4 +28,9 @@
 <% if current_user.admin == true %>
   <%= link_to 'Dodaj przychodnie', new_clinic_path %><br>
 <% end %>
+<%= link_to 'Export clinics', export_clinics_path%>
+<%= link_to'Dodaj Wizyte', new_visit_path %>
+
+
+
 <%= link_to 'Powrot', root_path %>

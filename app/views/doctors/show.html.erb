@@ -1,4 +1,5 @@
 
+
 <p>
   <strong>Imie i nazwisko:</strong>
   <%= @doctor.name %>
@@ -17,9 +18,11 @@
 <p>
   <strong>Przychodnie:</strong>
   <% @clinic.each do |clinic| %>
-  <%= clinic.number %> |
+    <%= clinic.number %> |
   <%end%>
 </p>
+
+
 
 
   

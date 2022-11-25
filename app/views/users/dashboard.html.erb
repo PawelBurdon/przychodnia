@@ -1,0 +1,43 @@
+<% if current_user.doctor != true%>
+
+<table cellspacing=0 border=1>
+
+    <tr>
+        <th>Email</th>
+        <th>Wizyta</th>
+    </tr>
+    <tr>
+        <td> <%= @user.email %> </td>
+        <td>
+            <%= @user.status %>
+        </td>
+    </tr>
+
+</table>
+
+<%end%>
+
+<% if current_user.doctor == true%>
+
+<table cellspacing=0 border=1>
+
+    <tr>
+        <th>Email</th>
+        <th>Przychodnia</th>
+        <th>Pacjent</th>
+    </tr>
+    <tr>
+        <td> <%= @user.email %> </td>
+        <td>
+            <% @clinicD.each do |clinic| %>
+                <%= clinic.number %> |
+            <%end%>
+        </td>
+        <td>
+
+        </td>
+    </tr>
+
+</table>
+
+<%end%>

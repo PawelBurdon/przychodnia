@@ -1,0 +1,32 @@
+<h1>Wizyty</h1>
+
+<table cellspacing=0 border=1>
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
+                Doktor
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @clinic.each do |clinic| %>
+        <tr>
+            <td>
+                <%= @user.email %>
+            </td>
+            
+            <td>
+                <%= clinic.doctor.name %>
+                    
+            </td>
+           
+        </tr>
+         <%end%>
+    </tbody>
+</table>
+
+<%= link_to "Powrot", users_path %>

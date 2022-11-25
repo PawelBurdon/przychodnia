@@ -3,6 +3,7 @@
     <th>Email</th>
     <th>Utworzono</th>
     <th>Ostatnio zalogowany</th>
+    <th>Doktor</th>
     <th>Usun konto</th>
     <th>Informacje o zalogowaniu</th>
   </tr>
@@ -12,10 +13,12 @@
       <td><%= user.email %></td>
       <td><%= user.created_at.strftime('%F %T') %></td>
       <td><%= user.current_sign_in_at.strftime('%F %T') %></td>
+      <td> <%= user.doctor %> </td>
       <td><%= link_to 'Usun', user_path(user), method: :delete, data: { confirm: 'Na pewno chcesz usunac?' } %></td>
       <td><%= link_to 'Info',  user_path(user)%>
     </tr>
   <% end %>
 </table>
+
 
 <%= link_to "Powrot", root_path%>

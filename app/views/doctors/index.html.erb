@@ -25,3 +25,8 @@
   <%= link_to 'Dodaj lekarza', new_doctor_path %><br>
 <%end%>
 <%= link_to 'Powrot', root_path %>
+
+<%= form_tag import_doctors_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end  %>

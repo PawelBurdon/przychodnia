@@ -1,0 +1,35 @@
+<h1>Wizyty</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
+                Przychodnie
+            </th>
+            <th>
+                Pacjeci
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @clinic.each do |clinic| %>
+        <tr>
+            <td>
+                <%= @doctor.email %>
+            </td>
+            <td>
+                <%= clinic.number %> |
+            </td>
+            <td>
+                <%= clinic.user.email %>
+            </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+
+<%= link_to "Powrot", users_path %>

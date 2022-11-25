@@ -1,0 +1,25 @@
+<%= form_with model: @visit, local: true do |form| %>
+ 
+
+  <p>
+    <%= form.label :description, "Opis problemu" %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :data, "Data wizyty:" %><br>
+    <%= form.datetime_select :data, start_year: Time.now.year %>
+  </p>
+
+ <p>
+    <%= form.label :clinic_id, "Wybierz Przychodnie:" %><br>
+    <%= form.collection_select :clinic_id, Clinic.all, :id, :clinic_type %>
+  </p>
+ 
+  <p>
+    <%= form.submit "Dodaj wizyte" %>
+  </p>
+ 
+<% end %>
+
+

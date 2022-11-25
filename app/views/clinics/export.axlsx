@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Clinics") do |sheet|
+	sheet.add_row ['Id', 'Number', 'Type', 'Doctor_id']
+  @clinics.each do |item|
+    sheet.add_row [item.id, item.number, item.clinic_type, item.doctor_id]
+  end
+end

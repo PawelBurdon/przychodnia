@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_16_120904) do
+ActiveRecord::Schema.define(version: 2022_11_25_072800) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 2022_11_16_120904) do
     t.date "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.boolean "status", default: false
+    t.datetime "appointment_date", default: "2022-11-25 07:49:12"
+    t.text "description", default: ""
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -48,9 +52,26 @@ ActiveRecord::Schema.define(version: 2022_11_16_120904) do
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "clinic_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'inet' for column 'current_sign_in_ip'
+
+  create_table "visits", force: :cascade do |t|
+    t.text "description"
+    t.datetime "data"
+    t.integer "clinic_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

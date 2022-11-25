@@ -1,0 +1,26 @@
+<h1>Ustawienia konta</h1>
+
+<table border="1" cellspacing=0>
+    <thead>
+        <tr>
+            <th>Przychodnie</th>
+            <th>Pacjeci</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <% @clinic.each do |clinic| %>
+                <%= clinic.number %> |
+                <%end%>
+            </td>
+            <td>
+                <% @clinic.each do |clinic| %>
+                    <%= clinic.user.email %> |
+                <%end%>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
